@@ -1,6 +1,6 @@
 <?php
     // ini_set('display_errors', 'On');
-    include("function/header.php");
+    include("header_front.php");
     if ($_POST){
         $num = array_search('Delete Image', $_POST);
         $statement = "DELETE FROM `images` WHERE imageID = ".toQuote($num);
@@ -31,6 +31,11 @@
     echo "</div>";
     echo "</div>";
 ?>
+                    <div class='container has-text-centered'>
+                        <h1 class='title is-2'>
+                                    Previously on Gallery:
+                                </h1>
+                                </div>
 <div id="notification"></div>
 			<div class="hero-foot">
 				<footer class="footer">

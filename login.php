@@ -1,5 +1,5 @@
 <?php
-	include("function/header.php");
+	include("header_front.php");
     if ($_POST["btn"] == "Submit"){
         $username = toQuote($_POST["username"]);
         $password = hash("whirlpool",$_POST["pass"]);
@@ -16,10 +16,10 @@
     <body>
         <div class="centerdiv">
             <form action="" method="post" style="top:50%">
-                <h4 style="margin-top:0">Login</h4>
-                <input type="text" name="username" placeholder="Enter Username"><br>
-                <input title="Yer Password please" pattern="^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?!.*\s).{8,}$" type="password"  name="pass" placeholder="Enter Password"><br>
-                <input class="btn1" type="submit" name="btn" value="Submit"><br>
+                <h4 class='title is-2'>See your Soul</h4>
+                <input class="input" type="text" name="username" placeholder="Enter Username"><br>
+                <input class="input" title="Yer Password please" pattern="^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?!.*\s).{8,}$" type="password"  name="pass" placeholder="Enter Password"><br>
+                <input class='button is-dark' type="submit" name="btn" value="Submit"><br>
             </form>
             <script src='https://www.google.com/recaptcha/api.js'></script>
             <br>

@@ -1,6 +1,6 @@
 <?php
     session_start();
-    include("./config/setup.php");
+    include("../config/setup.php");
 ?>
 <head>
     <title>Tamagru</title>
@@ -29,7 +29,7 @@
                     {
                        ?>
                         <p class='control'>
-                        <a class='button button is-dark' href="logout.php" name="logout-btn" id="logout-btn" value="Log Out">;
+                        <a class='button button is-dark' href="logout.php" name="logout-btn" id="logout-btn" value="Log Out">
                             <span>Log out</span>
                         </a>
                         </p>
@@ -39,7 +39,7 @@
                         </a>
                         </p>
                     <p class='control'>
-                        <a class='button button is-dark' name="settings-btn" href='settings.php' value="Settings">;
+                        <a class='button button is-dark' name="settings-btn" href='settings.php' value="Settings">
                             <span>Settings</span>
                         </a>
                         </p>
@@ -68,7 +68,8 @@
     </form>
     </div>
     <link rel="stylesheet" href="styles/bulma.min.css">
-		<link rel="stylesheet" href="styles/default.css">	
+        <link rel="stylesheet" href="styles/default.css">	
+        <link rel="stylesheet" href="styles/dark.css">	
     <link href="https://fonts.googleapis.com/css?family=K2D" rel="stylesheet"> 
 </head>
 </html>

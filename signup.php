@@ -1,7 +1,7 @@
 <?php
-	include("function/header.php");
+	include("header_front.php");
 
-	// require_once "function/recaptchalib.php";
+
 	if($_POST["btn"] == "submit"){
 		switch(checkInfo($_POST)){
 			case 1:
@@ -37,7 +37,7 @@
 				session_destroy();
 				break;
 			default:
-				header("Location: reg_success.php");
+				header("Location: function/reg_success.php");
 				break;
 		}
 		echo "<div class='errdiv'>$err</div>";	
@@ -116,11 +116,15 @@
 		<div class="centerdiv">
 			<form action="" method="post" style="top:50%">
 			<div class="field">
-				<label class="label">Sign Your SOUL</label>
-				<input class='input' type="text" name="username" placeholder="Enter Username"><br>
-				<input class='input' title="INSTRUCTIONS WERE RIGHT THERE!!!!!" pattern="^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?!.*\s).{8,}$" type="password"  name="pass" placeholder="Password requires one lower case letter, one upper case letter, one digit, 8+ characters, and no spaces."><br>
-				<input class='input' title="DUDE!!!!" pattern="^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?!.*\s).{8,}$" type="password"  name="conf" placeholder="Confirm Password"><br>
-				<input class='input' type="email" name="email" placeholder="Enter Email Address"><br>
+				<h1 class='title is-2'>Sign Your SOUL</h1>
+				<label class="label">Username</label>
+				<input class='input' type="text" name="username" placeholder="Yer Username please, go bananas"><br>
+				<label class="label">Password</label>
+				<input class='input' title="INSTRUCTIONS WERE RIGHT THERE!!!!!" pattern="^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?!.*\s).{6,}$" type="password"  name="pass" placeholder="Gonna need at least 6 characters, at least one being an UPPERCASE, a lowercase, and a number"><br>
+				<label class="label">Confirm Password</label>				
+				<input class='input' title="DUDE!!!!" pattern="^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?!.*\s).{6,}$" type="password"  name="conf" placeholder="What the Password said, but exactly what you typed in the Password"><br>
+				<label class="label">Email</label>
+				<input class='input' type="email" name="email" placeholder="insert@email.here"><br>
 				<div class="field">
 <label class="label">Gender</label>
 <div class="control">
@@ -138,24 +142,15 @@
 </div>
 </div>
 </div>
-<!-- <div class="g-recaptcha" data-sitekey="6LfjL4IUAAAAAKmjTsPYNwAU6D4ky8MUiLJK89f1"></div> -->
+
 				<input class='button is-dark' type="submit" name="btn" value="submit"><br>
 			</form>
-			<!-- <script src='https://www.google.com/recaptcha/api.js'></script> -->
+
 			<div class="content has-text-centered">
 			<h5>Already without a soul?</h5> <a href=login.php>Sign in here.</a><br>
 		</div>
 		<?php
-			// $secret = "6LfjL4IUAAAAAKmjTsPYNwAU6D4ky8MUiLJK89f1";
-			// $response = null;
-			// $reCaptcha = new ReCaptcha($secret);
 
-			// if ($_POST["g-recaptcha-response"]){
-			// 	$response = $reCaptcha->verifyResponse(
-			// 		$_SERVER["REMOTE_ADDR"],
-			// 		$_POST["g-recaptcha-response"]
-			// 	);
-			// }
 		?>
 	</body>
 	<div id="notification"></div>

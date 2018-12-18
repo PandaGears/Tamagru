@@ -1,6 +1,6 @@
 <?php
 session_start();
-include_once("header.php");
+include_once("header_function.php");
 $token = hash("whirlpool", $_SESSION["username"].$_SESSION["email"]);
 echo $token."<br>";
 $token = substr(str_shuffle($token), 0, 12);
@@ -44,9 +44,10 @@ $message = "
                     Ready to join the flock?
 
             Click this link to activate the thing: 
-127.0.0.1:8080/camagru/reg_conf.php?username=$username&token=$token
+            http://localhost:8080/camagru/function/reg_conf.php?username=$username&token=$token
                     Have fun, you human, you...
 ";
-mail($_SESSION["email"], "A NEW CHALLENGER!!!!", $message);
+$headers = 'From:noreply@maybetamagru.com' . "\r\n"; 
+mail($_SESSION["email"], "A NEW CHALLENGER!!!!", $message, $headers);
 header("Location: ../login.php");
 ?>

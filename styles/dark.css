@@ -29,7 +29,7 @@
 }
 
 html {
-	background-color: #ffffff;
+	background-color: #6e6e6e;
 	font-size: 16px;
 	-moz-osx-font-smoothing: grayscale;
 	-webkit-font-smoothing: antialiased;
@@ -44,7 +44,7 @@ html {
 }
 
 .is-dark {
-    background-color: rgb(255, 0, 0) !important;
+    background-color: rgb(90, 90, 90) !important;
 }
 
 
@@ -55,11 +55,11 @@ html {
 
 .navbar-start .navbar-item:hover,
 .navbar-brand .navbar-item:hover {
-    background-color: rgb(255, 66, 66) !important;
+    background-color: rgb(54, 54, 54) !important;
 }
 
 .navbar {
-    background-color: #ff0000 !important;
+    background-color: #272727 !important;
 }
 
 .navbar-burger span {
@@ -67,17 +67,19 @@ html {
 }
 
 .navbar-menu .is-active {
-    background-color: rgb(250, 91, 91) !important;  
+    background-color: rgb(94, 94, 94) !important;  
 }
 
 .navbar-menu {
-    background-color: red !important;  
+    background-color: rgb(65, 65, 65) !important;  
 }
 
-
+.body{
+    color: white;
+}
 
 .footer {
-    background: #ff0000 !important;
+    background-color: rgb(65, 65, 65) !important;  
 }
 
 .footer p {
@@ -90,7 +92,7 @@ html {
 
 .modal-card-head,
 .modal-card-foot {
-    background-color: #ff0000 !important;
+    background-color: #383838 !important;
 }
 
 .modal-card-title {
@@ -98,7 +100,7 @@ html {
 }
 
 .modal a {
-    color: #ff0000 !important;
+    color: #383838 !important;
 }
 
 .modal-card {
@@ -149,12 +151,16 @@ figure {
     margin-top: 15px;
 }
 
+.subtitle{
+    color: white;
+}
+
 #live_search_columns {
     width: 100%;
     opacity: 0.9;
     position: absolute;
     z-index: 999;
-    background-color: #ff0000;
+    background-color: #383838;
 }
 
 .login p, .name p {
@@ -235,8 +241,8 @@ figure:hover #account_img {
 }
 
 .tabs.is-toggle li.is-active a {
-    background-color: #ff0000 !important;
-    border-color: #ff0000 !important
+    background-color: #383838 !important;
+    border-color: #383838 !important
 }
 
 #profile_img {
@@ -273,7 +279,7 @@ figure:hover #profile_img {
 }
 
 #profile_card {
-    background-color: rgb(255, 255, 255);
+    background-color: rgb(37, 37, 37);
 }
 
 .tabs.is-toggle li.is-active a {
@@ -357,7 +363,7 @@ figure:hover #profile_img {
 #video {
     display: flex;
     width: 100%;
-    background-color: #ffffff;
+    background-color: #383838;
 }
 
 #photo_list {

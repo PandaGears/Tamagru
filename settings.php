@@ -1,5 +1,5 @@
 <?php
-    include("function/header.php");
+    include("header_front.php");
     $i = 0;
     if($_POST["btn"]){
         $i = 1;
@@ -33,39 +33,49 @@
             $statement = "UPDATE users SET notifications = ".toQuote($onoff)." WHERE username = ".toQuote($_SESSION["username"]);
             $db->runStatement($db->getDBConn(),$statement);
         }
-        // header("Location: video.php");
+        if($_POST["themes"]){
+            if($_POST["themes"] == "default")
+            echo"<link rel='stylesheet' href='styles/default.css'>";
+            else
+            echo"<link rel='stylesheet' href='styles/dark.css'>";
+        }
     }
 ?>
 <html>
-    <div class="centerdiv">
+    <div class="file.is-centered">
         <form style="align-text:left" action="" method="post" style="top:50%">
-            <h4 style="margin-top:0">Change settings:</h4>
+            <h4 class='title is-2'>So, not Satisfied? fine! what do you want changed?</h4>
             <?php 
                 if($i == 0){
-                    echo "<label><input type='checkbox' name='usercheck' value='usercheck'>Change Username</label><br>";
-                    echo "<label><input type='checkbox' name='passcheck' value='passcheck'>Change Password</label><br>";
-                    echo "<label><input type='checkbox' name='emailcheck' value='emailcheck'>Change Email Address</label><br>";
-                    echo "<label><input type='checkbox' name='notecheck' value='notecheck'>Change Notification Settings</label><br>";
-                    echo "<input class='btn1' type='submit' name='btn' value='Submit'><br>";
+                    echo "<label><input class='checkbox' type='checkbox' name='usercheck' value='usercheck'>Change Username</label><br>
+                    <label><input class='checkbox' type='checkbox' name='passcheck' value='passcheck'>Change Password</label><br>
+                    <label><input class='checkbox' type='checkbox' name='emailcheck' value='emailcheck'>Change Email Address</label><br>
+                    <label><input class='checkbox' type='checkbox' name='notecheck' value='notecheck'>Change Notification Settings</label><br>
+                    <label><input class='checkbox' type='checkbox' name='themecheck' value='themecheck'>Change Theme Settings</label><br>
+                    <input class='button is-dark' type='submit' name='btn' value='Submit'><br>";
                 }
                 if($i >= 1 && $_POST["usercheck"]==usercheck){
-                    echo "<input type='text' name='curruser' placeholder='Enter Current Username'><br>";
-                    echo "<input type='text' name='newuser' placeholder='Enter New Username'><br>";
+                    echo "<input class='input' type='text' name='curruser' placeholder='Enter Current Username'><br>
+                    <input class='input' type='text' name='newuser' placeholder='Enter New Username'><br>";
                 }
                 if($i >= 1 && $_POST["passcheck"]==passcheck){
-                    echo "<input title='Password requires one lower case letter, one upper case letter, one digit, 8+ characters, and no spaces.' pattern='^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?!.*\s).{8,}$'' type='password'  name='currpass' placeholder='Enter Current Password'><br>";
-                    echo "<input title='Password requires one lower case letter, one upper case letter, one digit, 8+ characters, and no spaces.' pattern='^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?!.*\s).{8,}$' type='password'  name='newpass' placeholder='Enter New Password'><br>";
+                    echo "<input class='input' title='You registered, you know what I expect...' pattern='^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?!.*\s).{6,}$'' type='password'  name='currpass' placeholder='Enter Current Password'><br>
+                    <input class='input' title='Password requires one lower case letter, one upper case letter, one digit, 8+ characters, and no spaces.' pattern='^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?!.*\s).{6,}$' type='password'  name='newpass' placeholder='Enter New Password'><br>";
                 }
                 if($i >= 1 && $_POST["emailcheck"]==emailcheck){
-                    echo "<input type='email' name='curremail' placeholder='Enter Current Email Address'><br>";
-                    echo "<input type='email' name='newemail' placeholder='Enter New Email Address'><br>";
+                    echo "<input type='email' class='input' name='curremail' placeholder='Enter Current Email Address'><br>
+                    <input type='email' class='input' name='newemail' placeholder='Enter New Email Address'><br>";
                 }
                 if($i >= 1 && $_POST["notecheck"] == notecheck){
-                    echo "<label><input type='radio' name='notifications' value='noteon'>Receive Email Updates</label><br>";
-                    echo "<label><input type='radio' name='notifications' value='noteoff'>Don't Receive Email Updates</label><br>";
+                    echo "<label><input type='radio' name='notifications' value='noteon'>Receive Email Updates</label><br>
+                    <label><input type='radio' name='notifications' value='noteoff'>Don't Receive Email Updates</label><br>";
+                }
+                if($i >= 1 && $_POST["themecheck"] == themecheck){
+                    echo "<label><input type='radio' name='themes' value='default'>Default</label><br>
+                    <label><input type='radio' name='themes' value='dark'>Dark</label><br>";
                 }
                 if($i == 1){
-                    echo "<input class='btn1' type='submit' name='btn2' value='Submit'><br>";
+                    echo "<input class='button is-dark' type='submit' name='btn2' value='Submit'><br>";
                 }
             ?>
         </form>

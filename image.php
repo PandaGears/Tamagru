@@ -1,5 +1,5 @@
 <?php
-    include("function/header.php");
+    include("header_front.php");
     if ($_POST["like-btn"]){
         $statement = "UPDATE images SET likes = likes + 1 WHERE imageID = ".toQuote($_GET["imageID"]);
         $db->runStatement($db->getDBConn(),$statement);

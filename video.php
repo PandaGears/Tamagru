@@ -1,5 +1,5 @@
 <?php
-	include("function/header.php");
+	include("header_front.php");
 	if(!$_SESSION["username"]){
 		header("Location: login.php");
 	}
@@ -33,17 +33,17 @@
 <html lang="en">
 <body>
 	<div style="position:absolute; z-index:1; top:10%; display:flex; flex-direction:column">
-		<video class="webcamma" autoplay="true" id="video"></video><br>
-		<button class="btn1" style="margin-top:10px; flex:1; width:100%" onclick="snap();">Take Picture</button>
-		<input id="add_gal" type="submit" name="addgal" class="btn1" value="Add to gallery">
-		<input  class="filters" style="width:100%; color:white; font-family:'K2D'; margin-top:10px" type="file" id="imageLoader" name="imageLoader"/><br>
-		<div style='width:640px; height:480px; position:relative; z-index:2; color:white; font-family:K2D' id='canvdiv'>
-			<canvas class="webcamma" id="canvas"></canvas>
+		<video  autoplay="true" id="video"></video><br>
+		<button class="button is-dark" style="margin-top:10px; flex:1; width:100%" onclick="snap();">Take Picture</button>
+		<input id="add_gal" type="submit" name="addgal" class="button is-dark" value="Add to gallery">
+		<input  class="filters" style="width:100px; color:white; font-family:'K2D'; margin-top:10px" type="file" id="imageLoader" name="imageLoader"/><br>
+		<div style='width:300px; height:200px; position:relative; z-index:2; color:white; font-family:K2D' id='canvdiv'>
+			<canvas  id="canvas"></canvas>
 		</div>
 		<div style='width:640px; height:50px; position:relative; z-index:2; color:white; font-family:K2D' id='errdiv'>
 		</div>
 	</div>
-	<div class="filterdiv" style="position:absolute; top:10%; left:700px;">
+	<div class="filterdiv" style="position:absolute; left:700px;">
 		<?php
 			$i = 0;
 			$imarray = $db->returnRecord("SELECT * FROM images WHERE username = ".toQuote($_SESSION["username"]));
@@ -53,14 +53,15 @@
 			}
 		?>
 	</div>
-	<div class="filterdiv" style="position:absolute; bottom:5%; left:700px">
-		<img src='./images/sticker1.png' id='sticker1' width='80%' onclick='addSticker(id)'>
-		<img src='./images/sticker2.png' id='sticker2' width='80%' onclick='addSticker(id)'>
-		<img src='./images/sticker3.png' id='sticker3' width='80%' onclick='addSticker(id)'>
-		<img src='./images/sticker4.png' id='sticker4' width='80%' onclick='addSticker(id);'>
+	<div class="filterdiv" style="position:absolute; left:700px">
+		<img src='./images/sticker1.png' id='sticker1' width='200px' onclick='addSticker(id)'>
+		<img src='./images/sticker2.png' id='sticker2' width='200px' onclick='addSticker(id)'>
+		<img src='./images/sticker3.png' id='sticker3' width='200px' onclick='addSticker(id)'>
+		<img src='./images/sticker4.png' id='sticker4' width='200px' onclick='addSticker(id)'>
+		<img src='./images/sticker5.png' id='sticker5' width='200px' onclick='addSticker(id)'>
 	</div>
 </body>
-</html>
+
 <script type="text/javascript">
 	var video = document.getElementById('video');
 	var canvas = document.getElementById('canvas');

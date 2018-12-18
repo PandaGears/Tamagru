@@ -1,5 +1,5 @@
 <?php
-include("header.php");
+include("header_function.php");
 $headers = getallheaders();
 if ($headers["Content-type"] == "application/json") {
     $stuff = json_decode(file_get_contents("php://input"), true);
