@@ -23,6 +23,7 @@ $values = array(
                 toQuote($_SESSION["pass"]),
                 toQuote($_SESSION["email"]),
                 toQuote($_SESSION["gender"]),
+                'default',
                 toQuote($token),
                 '0',
                 '1'
@@ -44,7 +45,7 @@ $message = "
                     Ready to join the flock?
 
             Click this link to activate the thing: 
-            http://localhost:8080/camagru/function/reg_conf.php?username=$username&token=$token
+            http://$_SERVER[HTTP_HOST]/camagru/function/reg_conf.php?username=$username&token=$token
                     Have fun, you human, you...
 ";
 $headers = 'From:noreply@maybetamagru.com' . "\r\n"; 

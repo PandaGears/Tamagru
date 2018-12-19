@@ -33,17 +33,18 @@
 <html lang="en">
 <body>
 	<div style="position:absolute; z-index:1; top:10%; display:flex; flex-direction:column">
-		<video  autoplay="true" id="video"></video><br>
+		<video class="webcamma" autoplay="true" id="video"></video><br>
 		<button class="button is-dark" style="margin-top:10px; flex:1; width:100%" onclick="snap();">Take Picture</button>
 		<input id="add_gal" type="submit" name="addgal" class="button is-dark" value="Add to gallery">
-		<input  class="filters" style="width:100px; color:white; font-family:'K2D'; margin-top:10px" type="file" id="imageLoader" name="imageLoader"/><br>
+		<input  type="file" class="button is-dark"  id="imageLoader" name="imageLoader"/><br>
+
 		<div style='width:300px; height:200px; position:relative; z-index:2; color:white; font-family:K2D' id='canvdiv'>
-			<canvas  id="canvas"></canvas>
+			<canvas class="webcamma" id="canvas"></canvas>
 		</div>
 		<div style='width:640px; height:50px; position:relative; z-index:2; color:white; font-family:K2D' id='errdiv'>
 		</div>
 	</div>
-	<div class="filterdiv" style="position:absolute; left:700px;">
+	<div class="filterdiv" style="position:absolute; right: 0;">
 		<?php
 			$i = 0;
 			$imarray = $db->returnRecord("SELECT * FROM images WHERE username = ".toQuote($_SESSION["username"]));
@@ -53,123 +54,19 @@
 			}
 		?>
 	</div>
-	<div class="filterdiv" style="position:absolute; left:700px">
-		<img src='./images/sticker1.png' id='sticker1' width='200px' onclick='addSticker(id)'>
-		<img src='./images/sticker2.png' id='sticker2' width='200px' onclick='addSticker(id)'>
-		<img src='./images/sticker3.png' id='sticker3' width='200px' onclick='addSticker(id)'>
-		<img src='./images/sticker4.png' id='sticker4' width='200px' onclick='addSticker(id)'>
+
+	<div class="centerdiv" style=" left:900px">
+		<img src='./images/sticker1.png' id='sticker1' width='200px' onclick='addSticker(id)'><br>
+		<img src='./images/sticker2.png' id='sticker2' width='200px' onclick='addSticker(id)'><br>
+		<img src='./images/sticker3.png' id='sticker3' width='200px' onclick='addSticker(id)'><br>
+		<img src='./images/sticker4.png' id='sticker4' width='200px' onclick='addSticker(id)'><br>
 		<img src='./images/sticker5.png' id='sticker5' width='200px' onclick='addSticker(id)'>
 	</div>
+
 </body>
 
-<script type="text/javascript">
-	var video = document.getElementById('video');
-	var canvas = document.getElementById('canvas');
-	var context = canvas.getContext('2d');
-	var imageLoader = document.getElementById('imageLoader');
-		imageLoader.addEventListener('change', handleImage, false);
+<script src='js/imagery.js'>
 
-	navigator.getUserMedia = navigator.getUserMedia || navigator.webkitGetUserMedia ||
-	navigator.mozGetUserMedia || navigator.oGetUserMedia || navigator.msGetUserMedia;
-
-	if (navigator.getUserMedia){
-		navigator.getUserMedia({video:true}, streamWebCam, throwError);
-	}
-
-	function streamWebCam(stream){
-		video.srcObject = stream;
-		video.play();
-	}
-
-	function throwError(e){
-		alert(e.name);
-	}
-
-	function addSticker(id){
-		var sticker = new Image();
-		sticker.src = "./images/"+id+".png";
-		if (canvas.width == 640){
-			document.getElementById("errdiv").innerHTML = ""; 
-			context = canvas.getContext('2d');
-			context.drawImage(sticker,0,0,video.clientWidth, video.clientHeight);
-			img.src = canvas.toDataURL('image/png');
-			document.getElementById("canvdiv").innerHTML = "<img src="+img.src+">";
-		}
-		else{
-			document.getElementById("errdiv").innerHTML = "You need to add/take a picture first."; 
-		}
-	}
-
-	function snap(){
-		document.getElementById("errdiv").innerHTML = ""; 
-		canvas.width = video.clientWidth;
-		canvas.height = video.clientHeight;
-		context.translate(canvas.width, 0);
-		context.scale(-1, 1);
-		context.save();
-		context.restore();
-		context.drawImage(video, 0, 0);
-		document.getElementById("canvas").style.transform = "rotateY(0deg)";
-		document.getElementById("imageLoader").value="";
-	}
-	var image = document.querySelector('canvas');
-
-	function handleImage(e){
-		var reader = new FileReader();
-		reader.onload = function(event){
-			var img = new Image();
-			img.onload = function(){
-				canvas.width = video.clientWidth;
-				canvas.height = video.clientHeight;
-				context.drawImage(img,0,0,img.width,img.height,0,0,canvas.width,canvas.height);
-			}
-			img.src = event.target.result;
-		}
-		reader.readAsDataURL(e.target.files[0]);
-		document.getElementById("canvas").style.transform = "rotateY(0deg)";
-	}
-
-	function download(){
-		var download = document.getElementById("download");
-		var image = document.getElementById("canvas").toDataURL("image/png")
-					.replace("image/png", "image/octet-stream");
-		
-		download.setAttribute("href", image);
-	}
-
-	function replaceImage(){
-		var src = "./<?php echo $_SESSION["username"]?>new.png"
-		var img1 = new Image();
-		img1.src = src;
-		canvas.width = video.clientWidth;
-		canvas.height = video.clientHeight;
-		context.drawImage(img1,0,0,640,480,0,0,canvas.width,canvas.height);
-	}
-
-	document.getElementById("add_gal").addEventListener("click", function(){
-		var img = new Image();
-		img.src = canvas.toDataURL();
-		if (canvas.width == video.clientWidth){
-			var json = {
-					pic: img.src
-				}
-				var xhr = new XMLHttpRequest();
-				xhr.open('POST', 'save.php', true);
-				xhr.setRequestHeader('Content-type', 'application/json');
-				xhr.onreadystatechange = function (data) {
-					if (xhr.readyState == 4 && xhr.status == 200)
-						console.log(xhr.responseText);
-				}
-				xhr.send(JSON.stringify(json))
-		}
-		});
 </script>
-<div id="notification"></div>
-			<div class="hero-foot">
-				<footer class="footer">
-					<div class="container">
-						<div class="content has-text-centered">
-						</div>
-					</div>
-				</footer>
+
 				</html>

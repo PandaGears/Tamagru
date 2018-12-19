@@ -1,5 +1,6 @@
+
 <?php
-    // ini_set('display_errors', 'On');
+
     include("header_front.php");
     if ($_POST){
         $num = array_search('Delete Image', $_POST);
@@ -18,30 +19,18 @@
         $page = 1;
     }
     $pages = ceil($total / $imagelimit);
-    echo "<div class='galdiv' style='top:120%'>";
+    echo "<div class='centerdiv' style='top:170%'>";
     while ($i < $imagelimit*$page && $out2[$i]){
         echo "<div class='imagediv'><img src=".$out2[$i]["image"]."></div>";
-        echo "<br><form method='post' action=''><input type='submit' name='".$out2[$i]["imageID"]."' class='btn1' value='Delete Image'></form>";
+        echo "<br><form method='post' action=''><input type='submit' name='".$out2[$i]["imageID"]."' class='button is-dark' value='Wipe out of memory banks?'></form>";
         $i++;
     }
     echo "<br><div class='imagediv' style='bottom:0%'>";
     for ($x = 1; $x <= $pages; $x++){
-        echo "<a href='usergal.php?page=$x'>$x</a>"."\t";
+        echo "<a href='gallery.php?page=$x'>$x</a>"."\t";
     }
     echo "</div>";
     echo "</div>";
 ?>
-                    <div class='container has-text-centered'>
-                        <h1 class='title is-2'>
-                                    Previously on Gallery:
-                                </h1>
-                                </div>
-<div id="notification"></div>
-			<div class="hero-foot">
-				<footer class="footer">
-					<div class="container">
-						<div class="content has-text-centered">
-						</div>
-					</div>
-				</footer>
+
 </html>

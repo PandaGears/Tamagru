@@ -393,6 +393,54 @@ figure:hover #profile_img {
 }
 
 #filters {
-    width: 100%;
-    text-align-last: center;
+	padding: 20px;
+	text-align:center;
+	background-color: rgba(0, 0, 0, 0.8);
+	color:white;
+	font-family:'K2D';
+	width:400px;
+	max-height: 500px;
+	overflow-y: auto;
+}
+
+.pagination{
+	position:fixed;
+	bottom:0;
+}
+
+.commdiv{
+	background-color:white;
+	font-family:'K2D';
+	width:640px;
+	max-height:400px;
+	overflow-y:auto;
+	position:relative;
+	margin:auto;
+	text-align:left;
+}
+.galdiv{
+	position:absolute;
+	z-index:1;
+	left:50%;
+	top:110%;
+	-webkit-transform: translate(-50%, -50%);
+	transform: translate(-50%, -50%);
+	text-align: center;
+}
+.centerdiv {
+	position: absolute;
+	padding: 30px;
+	left: 50%;
+	top: 50%;
+	-webkit-transform: translate(-50%, -50%);
+	transform: translate(-50%, -50%);
+	overflow:auto;
+	text-align:center;
+	background-color: rgba(255, 191, 191, 0.8);
+}
+.imagediv {
+	position: relative;
+	padding: 20px;
+	text-align:center;
+	background-color: rgba(255, 199, 199, 0.8);
 }

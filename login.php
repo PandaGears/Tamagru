@@ -28,13 +28,6 @@
            
         </div>
     </body>
-    <div id="notification"></div>
-			<div class="hero-foot">
-				<footer class="footer">
-					<div class="container">
-						<div class="content has-text-centered">
-						</div>
-					</div>
-				</footer>
+
 </html>
 </html>

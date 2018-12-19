@@ -393,12 +393,59 @@ figure:hover #profile_img {
     height: 100%;
 }
 
-#filters_container {
+/* #filters_container {
     display: flex; 
      height: 100%;
+} */
+
+.filters {
+	padding: 20px;
+	background-color: rgba(0, 0, 0, 0.8);
+	color:white;
+	font-family:'K2D';
+	width:300px;
+	max-height: 300px;
+	overflow-y: auto;
 }
 
-#filters {
-    width: 100%;
-    text-align-last: center;
+.pagination{
+	position:fixed;
+	bottom:0;
+}
+
+.commdiv{
+	background-color:white;
+	font-family:'K2D';
+	width:640px;
+	max-height:400px;
+	overflow-y:auto;
+	position:relative;
+	margin:auto;
+	text-align:left;
+}
+.galdiv{
+	position:absolute;
+	z-index:1;
+	left:50%;
+	top:110%;
+	-webkit-transform: translate(-50%, -50%);
+	transform: translate(-50%, -50%);
+	text-align: center;
+}
+.centerdiv {
+	position: absolute;
+	padding: 30px;
+	left: 50%;
+	top: 50%;
+	-webkit-transform: translate(-50%, -50%);
+	transform: translate(-50%, -50%);
+	overflow:auto;
+	text-align:center;
+	background-color: rgba(102, 102, 102, 0.8);
+}
+.imagediv {
+	position: relative;
+	padding: 20px;
+	text-align:center;
+	background-color: rgba(56, 56, 56, 0.8);
 }

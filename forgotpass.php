@@ -25,7 +25,7 @@
 ?>
 <html>
     <body>
-        <div class='container has-text-centered'>
+        <div class='centerdiv'>
             <form action="" method="post" style="top:50%">
                 <h4 style="margin-top:0">Hrrrrfm... This is a password reset...</h4>
                 <input type="text" class="input" name="username" placeholder="Enter Username"><br>

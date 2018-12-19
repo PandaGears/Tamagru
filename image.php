@@ -18,9 +18,10 @@
             $user = $out[0]["username"];
             $statement = "SELECT * FROM users WHERE username = ".toQuote($user);
             $out = $db->returnRecord($statement);
-            $message = $_SESSION["username"]." commented on your image. Go to 127.0.0.1:8080/camagru/image.PHP?imageID=".$_GET["imageID"]." to check it out!";
+            $message = $_SESSION["username"]." talked about your image. Fly off to http://$_SERVER[HTTP_HOST]/camagru/image.PHP?imageID=".$_GET["imageID"]." to see what happened!";
+            $headers = 'From:noreply@maybetamagru.com' . "\r\n"; 
             if ($out[0]["notifications"]){
-                mail($out[0]["email"], "New Camagru Comment", $message);
+                mail($out[0]["email"], "New Camagru Comment", $message, $headers);
             }
         }
     }
@@ -40,9 +41,9 @@
     if ($_SESSION["username"]){
         echo    
         "<div><form action='' method='post' id='commform'>
-        <input type='submit' class='btn1' value='like!' name='like-btn'><input type='submit' class='btn1' value='Post Comment' name='comm-btn'>
+        <input type='submit' class='button is-dark' value='LIKE ME!' name='like-btn'><input type='submit' class='button is-dark' value='SAY SOMETHING!!!' name='comm-btn'>
         </form></div>";
-        echo "<br><textarea name='commbox' form='commform' rows='5' cols='80' class='comm' placeholder='Comment Box'></textarea><br>";
+        echo "<br><textarea name='commbox' form='commform' rows='5' cols='80' class='textarea' placeholder='Whatever is going through yer mind, say it here, I aint gonna judge...'></textarea><br>";
     }
     echo "</div>";
 ?>

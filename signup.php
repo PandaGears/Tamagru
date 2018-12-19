@@ -149,17 +149,6 @@
 			<div class="content has-text-centered">
 			<h5>Already without a soul?</h5> <a href=login.php>Sign in here.</a><br>
 		</div>
-		<?php
-
-		?>
 	</body>
-	<div id="notification"></div>
-			<div class="hero-foot">
-				<footer class="footer">
-					<div class="container">
-						</div>
-					</div>
-				</footer>
-				</div>
-				</div>
+
 </html>

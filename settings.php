@@ -35,14 +35,16 @@
         }
         if($_POST["themes"]){
             if($_POST["themes"] == "default")
-            echo"<link rel='stylesheet' href='styles/default.css'>";
+                $onoff = "default";
             else
-            echo"<link rel='stylesheet' href='styles/dark.css'>";
+                $onoff = "dark";
+            $statement = "UPDATE users SET themes = ".toQuote($onoff)." WHERE username = ".toQuote($_SESSION["username"]);
+            $db->runStatement($db->getDBConn(),$statement);
         }
     }
 ?>
 <html>
-    <div class="file.is-centered">
+    <div class="centerdiv">
         <form style="align-text:left" action="" method="post" style="top:50%">
             <h4 class='title is-2'>So, not Satisfied? fine! what do you want changed?</h4>
             <?php 
@@ -75,17 +77,10 @@
                     <label><input type='radio' name='themes' value='dark'>Dark</label><br>";
                 }
                 if($i == 1){
-                    echo "<input class='button is-dark' type='submit' name='btn2' value='Submit'><br>";
+                    echo "<input class='button is-dark' type='submit' name='button is-dark' value='Submit'><br>";
                 }
             ?>
         </form>
     </div>
-    <div id="notification"></div>
-			<div class="hero-foot">
-				<footer class="footer">
-					<div class="container">
-						<div class="content has-text-centered">
-						</div>
-					</div>
-				</footer>
+
 </html>
