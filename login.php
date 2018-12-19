@@ -16,14 +16,14 @@
     <body>
         <div class="centerdiv">
             <form action="" method="post" style="top:50%">
-                <h4 class='title is-2'>See your Soul</h4>
+                <h4 class='title is-1'>See your Soul</h4>
                 <input class="input" type="text" name="username" placeholder="Enter Username"><br>
                 <input class="input" title="Yer Password please" pattern="^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?!.*\s).{8,}$" type="password"  name="pass" placeholder="Enter Password"><br>
                 <input class='button is-dark' type="submit" name="btn" value="Submit"><br>
             </form>
             <script src='https://www.google.com/recaptcha/api.js'></script>
             <br>
-			<a class="link" href='forgotpass.php'>...You forgot it... Didn't you</a>
+			<a class='subtitle is-5' href='resetpass.php'>...You forgot it... Didn't you</a>
 			<br>
            
         </div>

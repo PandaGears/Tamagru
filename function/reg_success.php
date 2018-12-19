@@ -23,7 +23,6 @@ $values = array(
                 toQuote($_SESSION["pass"]),
                 toQuote($_SESSION["email"]),
                 toQuote($_SESSION["gender"]),
-                'default',
                 toQuote($token),
                 '0',
                 '1'

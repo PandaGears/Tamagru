@@ -118,9 +118,9 @@
 			<div class="field">
 				<h1 class='title is-2'>Sign Your SOUL</h1>
 				<label class="label">Username</label>
-				<input class='input' type="text" name="username" placeholder="Yer Username please, go bananas"><br>
+				<input class='input' title="THE ONLY THING THAT HAD NO TRUE LIMITS!!!!" type="text" name="username" placeholder="Yer Username please, go bananas"><br>
 				<label class="label">Password</label>
-				<input class='input' title="INSTRUCTIONS WERE RIGHT THERE!!!!!" pattern="^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?!.*\s).{6,}$" type="password"  name="pass" placeholder="Gonna need at least 6 characters, at least one being an UPPERCASE, a lowercase, and a number"><br>
+				<input class='input' title="INSTRUCTIONS WERE RIGHT THERE!!!!! 6 CHARS!! UPPERCASE/LOWERCASE/NUMBER!!!!!!!" pattern="^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?!.*\s).{6,}$" type="password"  name="pass" placeholder="Gonna need at least 6 characters, at least one being an UPPERCASE, a lowercase, and a number"><br>
 				<label class="label">Confirm Password</label>				
 				<input class='input' title="DUDE!!!!" pattern="^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?!.*\s).{6,}$" type="password"  name="conf" placeholder="What the Password said, but exactly what you typed in the Password"><br>
 				<label class="label">Email</label>
@@ -128,7 +128,7 @@
 				<div class="field">
 <label class="label">Gender</label>
 <div class="control">
-<div class="select">
+<div class="select" style="left:7%">
 <select name="gender">
     <option>Male</option> 
     <option>Female</option>

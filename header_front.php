@@ -63,16 +63,8 @@
     </form>
     </div>
     <link rel="stylesheet" href="styles/bulma.min.css">
-    <?php 
-        if($_SESSION['username']){
-            if($_SESSION['themes'] == "dark"){
-                echo "<link rel='stylesheet' href='styles/dark.css'>";
-            }
-            else
-                echo "<link rel='stylesheet' href='styles/default.css'>";
-        }?>
         <link rel="stylesheet" href="styles/default.css">
-        	
+        <link rel='stylesheet' href='styles/dark.css'>
     <link href="https://fonts.googleapis.com/css?family=K2D" rel="stylesheet"> 
 </head>
 </html>
