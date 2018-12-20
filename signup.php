@@ -147,7 +147,7 @@
 			</form>
 
 			<div class="content has-text-centered">
-			<h5>Already without a soul?</h5> <a href=login.php>Sign in here.</a><br>
+			<h5 class='subtitle is-5'>Already without a soul?</h5> <a href=login.php>Sign in here.</a><br>
 		</div>
 	</body>
 

@@ -72,10 +72,6 @@
                     echo "<label><input type='radio' name='notifications' value='noteon'>Receive Email Updates</label><br>
                     <label><input type='radio' name='notifications' value='noteoff'>Don't Receive Email Updates</label><br>";
                 }
-                if($i >= 1 && $_POST["themecheck"] == themecheck){
-                    echo "<label><input type='radio' name='themes' value='default'>Default</label><br>
-                    <label><input type='radio' name='themes' value='dark'>Dark</label><br>";
-                }
                 if($i == 1){
                     echo "<input class='button is-dark' type='submit' name='button is-dark' value='Submit'><br>";
                 }

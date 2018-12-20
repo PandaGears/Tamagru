@@ -63,8 +63,7 @@
     </form>
     </div>
     <link rel="stylesheet" href="styles/bulma.min.css">
-        <link rel="stylesheet" href="styles/default.css">
-        <link rel='stylesheet' href='styles/dark.css'>       	
+        <link rel="stylesheet" href="styles/default.css">    	
         <link href="https://fonts.googleapis.com/css?family=K2D" rel="stylesheet"> 
 </head>
 </html>
